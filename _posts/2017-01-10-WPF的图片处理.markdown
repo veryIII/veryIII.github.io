@@ -1,0 +1,56 @@
+---
+layout:     post
+title:      "WPF的图片处理"
+subtitle:   ""
+date:       2017-01-10 14:00:00
+author:     "ZengZhi"
+header-rgba: "#b1e0e5"
+tags:
+    - c#
+---
+
+前一段时间做了一个WPF的简单图片处理程序，包含和图片打开、保存、各种滤镜、拉伸动画、亮度对比度调整和水印等基本功能，现在总结一下。
+
+#### 打开图片
+
+``` c#
+FPath = openFileDialog.FileName;                    //图片路径
+mBitmapSource = new BitmapImage(new Uri(FPath));	//打开图片
+yBitmapSource = mBitmapSource;						//将位图保存在一个BitmapSource的全部变量中
+mImage.Source = mBitmapSource;						//显示图片
+```
+
+#### 滤镜处理（以浮雕滤镜为例）
+
+``` c#
+WriteableBitmap wBitmap = new WriteableBitmap(mBitmapSource);//创建WriteableBitmap
+unsafe
+{
+	wBitmap.Lock();//锁定WriteableBitmap内存区
+	var bytes = (byte*)wBitmap.BackBuffer.ToPointer();//WriteableBitmap转换为byte数组
+	int w = wBitmap.BackBufferStride;//获取WriteableBitmap每行的像素
+	int ne = 4 + w;
+	for (int i = 0; i < wBitmap.PixelWidth - 1; i++)
+	{
+		for (int j = 0; j < wBitmap.PixelHeight - 1; j++)
+		{
+			int red = Math.Abs(bytes[i * 4 + j * w + 2] - bytes[i * 4 + j * w + 2 + ne] + 128);//调用绝对值Abs函数
+			int green = Math.Abs(bytes[i * 4 + j * w + 1] - bytes[i * 4 + j * w + 1 + ne] + 128);
+			int blue = Math.Abs(bytes[i * 4 + j * w] - bytes[i * 4 + j * w + ne] + 128);//颜色处理
+			if (red > 255) red = 255;
+			if (red < 0) red = 0;
+			if (green > 255) green = 255;
+			if (green < 0) green = 0;
+			if (blue > 255) blue = 255;
+			if (blue < 0) blue = 0;
+			bytes[i * 4 + j * w + 2] = (Byte)red;
+			bytes[i * 4 + j * w + 1] = (Byte)green;
+			bytes[i * 4 + j * w] = (Byte)blue;
+		}
+	}
+	wBitmap.AddDirtyRect(new Int32Rect(0, 0, wBitmap.PixelWidth, wBitmap.PixelHeight));//刷新整张图片
+	wBitmap.Unlock();//解锁内存区
+}
+mBitmapSource = wBitmap;//写回BitmapSource
+mImage.Source = mBitmapSource;//显示
+```

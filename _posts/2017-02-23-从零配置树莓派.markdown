@@ -1,0 +1,97 @@
+---
+layout:     post
+title:      "从零配置树莓派"
+subtitle:   ""
+date:       2017-02-23 12:00:00
+author:     "ZengZhi"
+header-rgba: "#999999"
+tags:
+    - 树莓派
+---
+
+### 0x00.前言
+
+**多次重装树莓派的系统，总结出下面的要点，以做备忘。**
+
+### 0x01.下载，烧录
+
+官网的镜像下载地址是： https://www.raspberrypi.org/downloads/
+
+一般选择官方的Raspbian镜像，下载完成后校验一下SHA-1，然后解压；
+
+接着内存卡格式化成FAT32格式，官方推荐的是`SDFormatter`这个软件；
+
+最后用`Win32DiskImager`烧录镜像到内存卡。
+
+### 0x02.网络配置
+
+#### a)连接树莓派
+
+通过各种方法获取树莓派ip地址，然后通过ssh连接树莓派，默认用户:`pi` 密码:`raspberry`（推荐工具`PuTTY`）；
+
+注：最新版的官方系统默认禁用了ssh，拔下sd卡在根目录建立一个文件名为 `ssh` 的空文件即可解决（参考链接：https://mark1998.com/raspi-3-ssh-connection-refused/）。
+
+#### b)修改网络配置
+
+##### 1)连接WiFi：
+修改 `/etc/wpa_supplicant/wpa_supplicant.conf` 文件，所有的WiFi连接配置都在这里，添加：
+``` 
+network={
+ssid="WiFi-name1"
+psk="WiFi-password1"
+}
+```
+修改完成后连接wifi: `sudo ifup wlan0`
+
+##### 2)配置静态ip：
+修改 `/etc/dhcpcd.conf` 文件，配置方法在文件里有说明，例如：
+```
+interface eth0
+static ip_address=172.16.17.234/24
+static routers=172.16.17.1
+static domain_name_servers=223.5.5.5 8.8.8.8
+```
+修改完成后重启
+
+### 0x03.高级设置
+
+进入树莓派的高级设置面板 `sudo raspi-config`
+
+一般需要修改的有：拓展存储卡(新版系统已经不需要)，pi用户密码，时区（亚洲-重庆），超频，GPU内存。
+
+### 0x04.更换软件源
+
+参考链接：https://www.janecc.com/pi-raspberry-3-using-ali-cloud-mirror-cloud.html
+
+##### a)备份原来的软件源；
+
+##### b)修改 `/etc/apt/sources.list` 文件：
+
+删除或注释掉原来的内容，添加阿里云的源：
+```
+deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main contrib non-free rpi
+```
+##### c)修改 `/etc/apt/sources.list.d/raspi.list` 文件：
+
+删除或注释掉原来的内容，添加中科大的镜像（阿里云无此镜像）：
+```
+deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/ jessie main ui
+```
+##### d)更新软件列表 
+
+`sudo apt-get update`
+
+### 0x05.安装配置
+
+#### 1)禁用PI3的蓝牙的WIFI
+
+`sudo vim /etc/modprobe.d/raspi-blacklist.conf`
+
+```
+#wifi
+blacklist brcmfmac
+blacklist brcmutil
+#bt
+blacklist btbcm
+blacklist hci_uart
+```
