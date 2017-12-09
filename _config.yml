@@ -7,8 +7,8 @@ description: ""
 keyword: "博客, 个人网站, 互联网"
 url: "http://rainzcy.cn/"              # your host, for absolute URL
 baseurl: ""          # for example, '/blog' if your blog hosted on 'host/blog'
-cdn: "http://gvip-1253629126.file.myqcloud.com"  #修改cdn后，注意修改头像连接
-#img: "http://gvip-1253629126.file.myqcloud.com/img"
+cdn: "http://zcy-1251816053.file.myqcloud.com/"  #修改cdn后，注意修改头像连接
+img: "http://zcy-1251816053.file.myqcloud.com/img/"
 
 
 
@@ -64,7 +64,7 @@ kramdown:
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 #sidebar-about-description: "何必较真"
-#sidebar-avatar: http://gvip-1253629126.file.myqcloud.com/img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: http://zcy-1251816053.file.myqcloud.com/img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 # Featured Tags
