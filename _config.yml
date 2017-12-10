@@ -70,17 +70,3 @@ sidebar-avatar: http://zcy-1251816053.file.myqcloud.com/img/avatar.jpg      # us
 # Featured Tags
 #featured-tags: true                     # whether or not using Feature-Tags
 #featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
-
-
-
-# Friends
-friends: [
-    {
-        title: "w3school",
-        href: "http://www.w3school.com.cn/"
-    },
-    {
-        title: "Zeg Blog",
-        href: "http://gvip.xyz/"
-    }
-]
