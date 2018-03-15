@@ -1,0 +1,98 @@
+body .container {
+  width: 850px;
+  margin: 70px auto 0px auto;
+  text-align: center;
+  
+}
+body .container h1 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+body .container h1 span {
+  font-weight: 700;
+  font-style: italic;  
+ 
+  border-bottom: 10px dashed currentColor;
+}
+body .container .button-effect {
+  padding: 30px 0px;
+}
+
+body .container .button-effect a {
+	width: 150px;
+	height: 300px;
+  margin-right: 100px;
+  margin-bottom: 30px;
+  font-size: 50px;
+  
+}
+body .container .button-effect a:nth-child(2) {
+  background-color: burlywood;
+ 
+}
+body .container .button-effect a:nth-child(3) {
+  background-color: lightpink;
+}
+body .container .button-effect a:nth-child(4) {
+  background-color: lightblue;
+}
+
+
+/* button styles !!!YOU NEED THEM 
+!!!ALSO YOU NEED TO ADD FONTWESOME */
+.effect {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  /* background-color: - add your own background-color */
+  font-family: 'Roboto';
+  /* put your font-family */
+  font-size: 18px;
+  padding: 20px 0px;
+  width: 600px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* effect-4 styles */
+.effect.effect-4 {
+  -webkit-transition: all 0.2s linear 0s;/* -webkit-transition平滑移动; linear 0s线性过度 */
+  transition: all 0.2s linear 0s;/* 写两次是为了让不同的浏览器兼容 */
+}
+.effect.effect-4:before {
+  content: "\f187";   /* \f187是箭头 */
+  font-family: FontAwesome;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-size: 30px;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  -webkit-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+}
+.effect.effect-4:hover {
+  text-indent: -9999px;
+}
+.effect.effect-4:hover:before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  text-indent: 0;
+}

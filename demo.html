@@ -1,0 +1,167 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3 按钮悬停效果</title>
+
+<style type="text/css">
+body .container {
+  width: 850px;
+  height: 600px;
+  margin: 0px auto 0px auto;
+  text-align: center;
+  background-image: url(img/bg.jpg);
+}
+body .container h1 {
+  font-weight: 400px;
+  font-style: normal;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+body .container h1 span {
+  font-weight: 700;
+  font-style: italic;  
+ 
+}
+
+
+body .container .button-effect a 
+{
+	
+	width: 200px;
+	height: 200px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	font-size: 50px;
+}
+body .container .button-effect a:nth-child(1) {
+  	background-color: burlywood;
+}
+body .container .button-effect a:nth-child(2) {
+  	background-color: lightpink;
+}
+body .container .button-effect a:nth-child(3) {
+  	background-color: lightblue;
+}
+
+
+/* button styles !!!YOU NEED THEM 
+!!!ALSO YOU NEED TO ADD FONTWESOME */
+.effect {
+  text-align: center;
+  display: inline-block;/* 设置为内联对象 */
+  position: relative;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  
+  
+  /* put your font-family */
+  font-size: 18px;
+  padding: 20px 0px;
+  width: 900px;
+  border-radius: 6px;
+ 
+}
+
+/* effect-4 styles */
+.effect.effect-4 {
+  -webkit-transition: all 0.2s linear 0s;/* -webkit-transition平滑移动; linear 0s线性过度 */
+  transition: all 0.2s linear 0s;/* 写两次是为了让不同的浏览器兼容 */
+}
+
+.effect.effect-4:before {
+  
+  content: "GO";     /* \f178是箭头 */
+ 
+  font-family: FontAwesome;
+  
+  display: -webkit-box;
+  display: -ms-flexbox;/* firefox(-moz)、opera(-0)、chrome/safari（-webkit) */
+  display: flex;
+  
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  
+  position: absolute;
+  top: 0px;
+  
+  left: 0px;
+  width: 200px;
+  height: 200px;
+  text-align: justify;
+  font-size: 30px;
+  
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  
+  -webkit-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+}
+
+.effect.effect-4:hover {
+  text-indent: -9999px;/* text-indent：首行缩进，-,负向缩进 */
+}
+.effect.effect-4:hover:before {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  text-indent: 0;
+}
+
+
+.effect.effect-1:hover:before
+{
+	background-image: url(img/古代.jpg);
+	background-repeat: no-repeat;
+}
+.effect.effect-2:hover:before
+{
+	background-image: url(img/现代.jpg);
+	background-repeat: no-repeat;
+}
+.effect.effect-3:hover:before
+{
+	background-image: url(img/未来.jpg);
+	background-repeat: no-repeat;
+}
+
+</style>
+
+</head>
+
+<body onload="draw('myCanvas')">
+
+<link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<script type="text/javascript" src="js/js.js"></script>
+
+<div class="container">
+  <h1>科技发展与展望</h1>
+  <div id="">
+	<canvas id="myCanvas" width="500px" height="150px"></canvas>	
+	</div>
+
+<div class="effect">
+	<div class="button-effect">
+    
+    <a class="effect effect-4 effect-1" href="ancient.html" title="Learn More">古代</a>
+    <a class="effect effect-4 effect-2" href="modern.html" title="Learn More">现代</a>
+    <a class="effect effect-4 effect-3" href="#" title="Learn More">未来</a>
+    
+	</div>
+</div>
+
+
+</div>
+
+
+</body>
+</html>
+<!--
+	<a class="effect effect-4" href="#" title="Learn More"></a>
+	<a class="effect effect-4" href="#" title="Learn More">过去</a>
+-->

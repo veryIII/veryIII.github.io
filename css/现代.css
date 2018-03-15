@@ -1,0 +1,120 @@
+.content
+{
+	padding: 0px 0px 30px 80px;
+	margin:auto;
+	width: 800px;
+	
+	word-wrap: break-word;
+	text-align: center;
+    background-image: url(../img/bg.jpg);
+}
+
+.topPic
+{
+	
+	padding: 10px;
+	
+	width: 800px;
+	height: 460px;
+	margin: 0px;
+	padding: 0px;
+}
+.topPicButton
+{
+	width: 800px;
+	height: 30px;
+	margin:  auto;
+	padding: 0px;
+	text-align: center;
+}
+
+.picture2
+{
+	float: left;
+	margin: 10px;
+	padding: 5px;
+}
+
+
+.pictureyun:hover{
+	opacity: 0.8;
+}
+/* 透明度百分之八十，在鼠标放在图片上时可以透明*/
+#Footer
+{
+	background-color: #000000;
+	font-size: 16pt;
+	width: 760px;
+	height: 50px;
+	color: #FFFFFF;
+}
+p
+{
+	font-size: 16pt;
+	
+}
+.tag
+{
+	width: 410px;
+	height: 200px;
+	
+	margin: 10px;
+	float: left;
+}
+#a,#b,#c
+{
+	
+	float: left;
+	
+}
+
+nav.navigation 
+{
+	
+	font-size: 14pt;
+	width: 720px;
+	height: 50px;
+	background-color: #000000;
+	color:  #FFFFFF;
+}
+a.navigation
+{
+	position:  inherit;
+	text-decoration: none;
+	color:  #FFFFFF;
+	
+}
+a.navigation:hover
+{
+	
+	background-color: crimson;
+	
+}
+
+.tagPic
+{
+	margin: 10px;
+	float: left;
+	width: 350px;
+	height: 450px;
+    
+	
+}
+
+.one
+{
+	text-align: center;
+	width: 100px;
+	float: left;
+}
+.font
+{
+	font-size: 17pt;
+	text-decoration: none;
+}
+.midPic
+{
+margin: 0;
+padding: 0;
+text-align: center;	
+}

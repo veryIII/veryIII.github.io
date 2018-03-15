@@ -1,0 +1,62 @@
+.content
+{
+	margin:10px auto;
+	width: 800px;
+	
+}
+
+.navigation
+{
+	padding: 1px;
+	margin: 4px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 14pt;
+	height: 50px;
+	width: 800px;
+	background-color: #000000;
+}
+.people
+{
+	width: 800px;
+	height: 110px;
+	background-color: #ADD8E6 ;
+}
+.people-p
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 25px;
+	color: #FFFFFF;
+	background-color: #000000;
+	font-size: 17pt;
+	float: left;
+}
+.people-ul
+{
+
+	list-style: none;
+}
+.people-li
+{
+	padding: 5px;
+	float: left;
+	list-style: none;
+}
+hr
+{
+	height: 4px;
+	background-color: #DEB887;
+}
+.Footer
+{
+	
+	background-color: #000000;
+	color: #FFFFFF;
+	width: 800px;
+}
+#jianzhuxue2
+{
+	float: left;
+}
